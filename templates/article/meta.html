@@ -1,0 +1,15 @@
+{{/* The harbor's meta row under a content item's title (the engine's
+     article/meta.html, shown when the type shows the author and date),
+     between hairlines: the author's avatar and name (a link to the
+     profile), the date, the date of the last change when it differs,
+     the view count when the type shows it. The class article-meta is the
+     engine's. */}}
+{{$author := .item.Node.CreatedBy}}
+<div class="article-meta h-meta">
+    {{if $author}}
+    <a class="h-meta-author" href="/{{$author.Slug}}"><img src="{{with $author.Avatar.URI}}{{.}}{{else}}{{avatarPlaceholder}}{{end}}" alt="" width="36" height="36"><span>{{$author.Username}}</span></a>
+    {{end}}
+    <time datetime="{{.item.Node.CreatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date .item.Node.CreatedAt "medium"}}</time>
+    {{if not .item.Node.UpdatedAt.IsZero}}{{if ne (date .item.Node.UpdatedAt "medium") (date .item.Node.CreatedAt "medium")}}<span>{{t "Updated:"}} <time datetime="{{.item.Node.UpdatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date .item.Node.UpdatedAt "medium"}}</time></span>{{end}}{{end}}
+    {{if .contentType.ShowViewCount}}<span>{{plural .item.Node.Counter.TotalCount "@count view" "@count views"}}</span>{{end}}
+</div>

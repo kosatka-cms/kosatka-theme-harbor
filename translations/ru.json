@@ -1,0 +1,36 @@
+{
+  "contexts": {},
+  "strings": {
+    "@count view": [
+      "@count просмотр",
+      "@count просмотра",
+      "@count просмотров"
+    ],
+    "A classic blog of cards and a sidebar - the pinned item as a wide card, the others in two columns, the sidebar's blocks as cards, the contents of a long text beside it, a dark footer in columns, an accent colour, a light and a dark scheme.": "Классический блог из карточек и сайдбара - закреплённый материал широкой карточкой, остальные в две колонки, блоки сайдбара карточками, оглавление длинного текста рядом, тёмный подвал в колонки, акцентный цвет, светлая и тёмная схемы.",
+    "About the author": "Об авторе",
+    "Accent colour": "Акцентный цвет",
+    "As on the visitor's device": "Как на устройстве посетителя",
+    "Colour scheme by default": "Цветовая схема по умолчанию",
+    "Contents": "Оглавление",
+    "Coral": "Коралловый",
+    "Dark": "Тёмная",
+    "Harbor": "Harbor",
+    "Light": "Светлая",
+    "Link copied": "Ссылка скопирована",
+    "Logging in and registration in the header": "Вход и регистрация в шапке",
+    "Navy": "Тёмно-синий",
+    "Plum": "Слива",
+    "Share": "Поделиться",
+    "Sharing and the author under a text whose type shows the author and date": "Кнопки \"поделиться\" и автор под текстом, тип которого показывает автора и дату",
+    "Switch the colour scheme": "Переключить цветовую схему",
+    "Teal": "Морская волна",
+    "The contents of a text with three headings or more, at the top of the sidebar": "Оглавление текста с тремя заголовками и больше, вверху сайдбара",
+    "Written by": "Автор",
+    "blog": "блог",
+    "cards": "карточки",
+    "dark": "тёмная",
+    "light": "светлая",
+    "responsive": "адаптивная",
+    "sidebar": "сайдбар"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "contexts": {},
+  "strings": {
+    "@count view": [
+      "@count visita",
+      "@count visitas"
+    ],
+    "A classic blog of cards and a sidebar - the pinned item as a wide card, the others in two columns, the sidebar's blocks as cards, the contents of a long text beside it, a dark footer in columns, an accent colour, a light and a dark scheme.": "Un blog clásico de tarjetas y una barra lateral - el contenido fijado como tarjeta ancha, los demás en dos columnas, los bloques de la barra lateral como tarjetas, el índice de un texto largo al lado, un pie oscuro en columnas, un color de acento, un esquema claro y uno oscuro.",
+    "About the author": "Sobre el autor",
+    "Accent colour": "Color de acento",
+    "As on the visitor's device": "Como en el dispositivo del visitante",
+    "Colour scheme by default": "Esquema de color por defecto",
+    "Contents": "Índice",
+    "Coral": "Coral",
+    "Dark": "Oscuro",
+    "Harbor": "Harbor",
+    "Light": "Claro",
+    "Link copied": "Enlace copiado",
+    "Logging in and registration in the header": "Acceso y registro en la cabecera",
+    "Navy": "Azul marino",
+    "Plum": "Ciruela",
+    "Share": "Compartir",
+    "Sharing and the author under a text whose type shows the author and date": "Compartir y el autor bajo un texto cuyo tipo muestra el autor y la fecha",
+    "Switch the colour scheme": "Cambiar el esquema de color",
+    "Teal": "Verde azulado",
+    "The contents of a text with three headings or more, at the top of the sidebar": "El índice de un texto con tres títulos o más, arriba en la barra lateral",
+    "Written by": "Escrito por",
+    "blog": "blog",
+    "cards": "tarjetas",
+    "dark": "oscuro",
+    "light": "claro",
+    "responsive": "adaptable",
+    "sidebar": "barra lateral"
+  }
+}

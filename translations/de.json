@@ -1,0 +1,35 @@
+{
+  "contexts": {},
+  "strings": {
+    "@count view": [
+      "@count Aufruf",
+      "@count Aufrufe"
+    ],
+    "A classic blog of cards and a sidebar - the pinned item as a wide card, the others in two columns, the sidebar's blocks as cards, the contents of a long text beside it, a dark footer in columns, an accent colour, a light and a dark scheme.": "Ein klassischer Blog aus Karten und einer Seitenleiste - der angeheftete Inhalt als breite Karte, die anderen in zwei Spalten, die Blöcke der Seitenleiste als Karten, das Inhaltsverzeichnis eines langen Textes daneben, eine dunkle Fußzeile in Spalten, eine Akzentfarbe, ein helles und ein dunkles Schema.",
+    "About the author": "Über den Autor",
+    "Accent colour": "Akzentfarbe",
+    "As on the visitor's device": "Wie auf dem Gerät des Besuchers",
+    "Colour scheme by default": "Standard-Farbschema",
+    "Contents": "Inhalt",
+    "Coral": "Koralle",
+    "Dark": "Dunkel",
+    "Harbor": "Harbor",
+    "Light": "Hell",
+    "Link copied": "Link kopiert",
+    "Logging in and registration in the header": "Anmeldung und Registrierung in der Kopfzeile",
+    "Navy": "Marineblau",
+    "Plum": "Pflaume",
+    "Share": "Teilen",
+    "Sharing and the author under a text whose type shows the author and date": "Teilen und der Autor unter einem Text, dessen Typ Autor und Datum zeigt",
+    "Switch the colour scheme": "Farbschema wechseln",
+    "Teal": "Petrol",
+    "The contents of a text with three headings or more, at the top of the sidebar": "Das Inhaltsverzeichnis eines Textes mit drei oder mehr Überschriften, oben in der Seitenleiste",
+    "Written by": "Geschrieben von",
+    "blog": "Blog",
+    "cards": "Karten",
+    "dark": "dunkel",
+    "light": "hell",
+    "responsive": "responsiv",
+    "sidebar": "Seitenleiste"
+  }
+}

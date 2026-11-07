@@ -1,0 +1,23 @@
+{{/* The harbor theme's hooks (see the engine's partials/theme_head.html):
+     theme_framework - Bootstrap 5.3 and the theme's fonts (css/fonts.css,
+     the files in static/fonts: Prata for headings, Onest for the text;
+     both with Cyrillic), and before the page paints: the colour scheme -
+     what the visitor chose with the header's switch ([data-theme-toggle],
+     kept in localStorage), else the "scheme" setting (the device's, light
+     or dark) - and the settings harbor.css and harbor.js read from
+     <html>: data-accent, data-toc (the contents in the sidebar);
+     theme_head - the engine's base.css with the theme's harbor.css over
+     it; theme_editor_css - the same for the editors. */}}
+{{define "theme_framework"}}
+    <script>(function(){var k="harbor-scheme",f={{themeSetting "scheme"}},d=document.documentElement,s=null;d.setAttribute("data-accent",{{themeSetting "accent"}}||"teal");d.setAttribute("data-toc",{{themeSetting "toc"}}?"1":"0");function a(v){d.setAttribute("data-bs-theme",v)}try{s=localStorage.getItem(k)}catch(e){}if(s!=="dark"&&s!=="light"){s=f==="light"||f==="dark"?f:(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}a(s);document.addEventListener("click",function(e){if(!e.target.closest("[data-theme-toggle]"))return;var v=d.getAttribute("data-bs-theme")==="dark"?"light":"dark";a(v);try{localStorage.setItem(k,v)}catch(e){}})})();</script>
+    <link rel="stylesheet" href="{{ staticCSS "bootstrap" }}">
+    <link rel="stylesheet" href="{{ themeCSS "fonts" }}">
+{{end}}
+{{define "theme_head"}}
+    <link rel="stylesheet" href="{{ staticCSS "base" }}">
+    <link rel="stylesheet" href="{{ themeCSS "harbor" }}">
+{{end}}
+{{/* The editors' text as the page's: Bootstrap, the fonts, base.css and
+     harbor.css, then a subtheme's stylesheets (TinyMCE's content_css is
+     a comma-separated list). */}}
+{{define "theme_editor_css"}}{{ staticCSS "bootstrap" }},{{ themeCSS "fonts" }},{{ staticCSS "base" }},{{ themeCSS "harbor" }}{{range themeStylesheets}},{{.}}{{end}}{{end}}

@@ -1,0 +1,37 @@
+{{/* The harbor's sharing and author, under a content item whose type
+     shows the author and date (an article, not a page like "About"),
+     when the "share" setting is on: the visitor's own share sheet (the
+     browser's, where it has one: harbor.js shows the button), copying
+     the address (harbor.js), an e-mail with the title and the address;
+     then the author - the avatar, the name and the signature from the
+     profile. The engine's slot is empty. */}}
+{{if and (themeSetting "share") .contentType.ShowSubmitted}}
+{{$author := .item.Node.CreatedBy}}
+{{$url := or .pageSEO.Canonical .item.Node.URL}}
+<div class="h-after">
+    <div class="h-share" data-h-share data-h-url="{{$url}}" data-h-title="{{.item.Node.Title}}">
+        <button type="button" class="h-pill" data-h-share-native hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/></svg>
+            {{t "Share"}}
+        </button>
+        <button type="button" class="h-pill" data-h-copy data-h-copied="{{tjs "Link copied"}}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>
+            <span data-h-copy-label>{{t "Copy link"}}</span>
+        </button>
+        <a class="h-pill" href="mailto:?subject={{pathEscape .item.Node.Title}}&amp;body={{pathEscape $url}}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            {{t "Email"}}
+        </a>
+    </div>
+    {{if $author}}
+    <section class="h-author" aria-label="{{t "About the author"}}">
+        <a class="h-author-avatar" href="/{{$author.Slug}}" tabindex="-1" aria-hidden="true"><img src="{{with $author.Avatar.URI}}{{.}}{{else}}{{avatarPlaceholder}}{{end}}" alt="" width="64" height="64" loading="lazy"></a>
+        <div class="h-author-text">
+            <p class="h-author-label">{{t "Written by"}}</p>
+            <a class="h-author-name" href="/{{$author.Slug}}">{{$author.Username}}</a>
+            {{with $author.Signature}}<div class="h-author-bio">{{rawHTML .}}</div>{{end}}
+        </div>
+    </section>
+    {{end}}
+</div>
+{{end}}

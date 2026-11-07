@@ -1,0 +1,21 @@
+{{/* The harbor footer, a dark band: the footer region's blocks side by
+     side in columns, then a line with the footer_bottom region (the
+     copyright block, the theme's - theme.yaml "blocks" - on the left, the
+     region's other blocks on the right); the engine's scripts, the
+     theme's harbor.js (sharing, the contents) and the document end
+     (html_scripts, html_end). */}}
+{{define "footer"}}
+<footer class="site-footer h-footer">
+    {{if regionHasBlocks "footer" .}}
+    <div class="h-wrap site-footer-region h-footer-columns">
+        {{template "region_blocks" (dict "Region" (region "footer") "Ctx" .)}}
+    </div>
+    {{end}}
+    <div class="h-wrap h-footer-row">
+        {{template "region_blocks" (dict "Region" (region "footer_bottom") "Ctx" .)}}
+    </div>
+</footer>
+{{template "html_scripts" .}}
+<script src="{{ themeJS "harbor" }}" defer></script>
+{{template "html_end" .}}
+{{end}}

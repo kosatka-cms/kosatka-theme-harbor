@@ -1,0 +1,26 @@
+{{/* main_column - the harbor's content row: the content and the
+     sidebar beside it on a wide screen, under it on a narrow one. The
+     content: the breadcrumb, title, the content_top region, content and
+     the content_bottom region. The sidebar: the sidebar region's blocks
+     as cards (harbor.css); on a content page harbor.js puts the contents
+     of a long text at its top, so a content page has the sidebar even
+     without blocks (left empty, it isn't shown). None on a service page
+     (.servicePage: error pages, editor forms). */}}
+{{define "main_column"}}
+{{$blocks := and (not .servicePage) (regionHasBlocks "sidebar" .)}}
+{{$side := or $blocks (and (not .servicePage) .item)}}
+<div class="h-page{{if $side}} h-page-side{{end}}">
+    <div class="content h-main">
+        {{template "breadcrumb" .}}
+
+        {{template "title" .}}
+
+        {{template "region_blocks" (dict "Region" (region "content_top") "Ctx" .)}}
+
+        {{template "content" .}}
+
+        {{template "region_blocks" (dict "Region" (region "content_bottom") "Ctx" .)}}
+    </div>
+    {{if $side}}<aside class="h-side" aria-label="{{t "Sidebar"}}">{{if $blocks}}{{template "sidebar.html" .}}{{end}}</aside>{{end}}
+</div>
+{{end}}

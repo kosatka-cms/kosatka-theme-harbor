@@ -1,0 +1,98 @@
+# The harbor theme: a classic blog of cards and a sidebar. A white
+# header bar with the name and the menu; the lists as cards in two
+# columns, the sticky item leading as a wide card with its picture
+# beside the text; the sidebar's blocks as cards; on a content page a
+# meta row under the title, the contents of a long text at the top of
+# the sidebar, the author and sharing under the text; a dark footer
+# with the footer's blocks in columns. An accent colour chosen on the
+# Appearance page, a light and a dark scheme. It keeps the engine's
+# regions, so blocks placed for another theme stay where they are.
+name: Harbor
+# favicon - the theme's icon (the site's, uploaded on Site information,
+# replaces it).
+favicon: /static/themes/harbor/images/harbor-icon.svg
+# The theme's description (Appearance page; entity.ThemeInfo).
+description: A classic blog of cards and a sidebar - the pinned item as a wide card, the others in two columns, the sidebar's blocks as cards, the contents of a long text beside it, a dark footer in columns, an accent colour, a light and a dark scheme.
+author: Kosatka
+license: MIT
+# version - this release (the tag vX.Y.Z without its "v"); min_version -
+# the oldest engine release the theme works with.
+version: 0.1.0
+min_version: 0.1.0
+homepage: https://github.com/kosatka-cms/kosatka-theme-harbor
+tags: [light, dark, cards, blog, sidebar, responsive]
+screenshot: screenshot.jpg
+# default_region - where new blocks go.
+default_region: sidebar
+regions:
+  - id: header
+    label: Header
+  # The column beside the content (partials/main_column.html); under it
+  # on a narrow screen.
+  - id: sidebar
+    label: Sidebar
+  # Between the page's title and its content.
+  - id: content_top
+    label: Content top
+  - id: content_bottom
+    label: Content bottom
+  # Inside the node page (dynamic/page.html, forum/topic.html).
+  - id: content_inline
+    label: Inside content (content page)
+  # The dark footer: its blocks side by side in columns.
+  - id: footer
+    label: Footer
+  # The footer's last line (the copyright block on a new site).
+  - id: footer_bottom
+    label: Footer bottom line
+# blocks - the blocks the theme comes with (entity.ThemeBlock): placed
+# when the theme gets its layout for the first time, unless the layout
+# has them.
+blocks:
+  - plugin: copyright
+    region: footer_bottom
+  - title: Powered by Kosatka CMS
+    region: footer_bottom
+    weight: 10
+    body: |
+      <p>Powered by <a href="https://github.com/kosatka-cms/kosatka">Kosatka CMS</a></p>
+# settings - the theme's options on the Appearance page
+# (entity.ThemeSetting). The accent and the contents are attributes of
+# <html> (partials/theme_head.html): harbor.css and harbor.js read them.
+settings:
+  - id: accent
+    label: Accent colour
+    type: select
+    default: teal
+    options:
+      - value: teal
+        label: Teal
+      - value: coral
+        label: Coral
+      - value: navy
+        label: Navy
+      - value: plum
+        label: Plum
+  - id: scheme
+    label: Colour scheme by default
+    type: select
+    default: auto
+    options:
+      - value: auto
+        label: As on the visitor's device
+      - value: light
+        label: Light
+      - value: dark
+        label: Dark
+  - id: toc
+    label: The contents of a text with three headings or more, at the top of the sidebar
+    type: bool
+    default: true
+  - id: share
+    label: Sharing and the author under a text whose type shows the author and date
+    type: bool
+    default: true
+  - id: guest_links
+    label: Logging in and registration in the header
+    type: bool
+    default: true
