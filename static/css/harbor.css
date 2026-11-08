@@ -1367,6 +1367,15 @@ main.container.container-content {
     text-decoration: none;
 }
 
+.h-meta .h-meta-comments {
+    color: inherit;
+    font-weight: inherit;
+}
+
+.h-meta .h-meta-comments:hover {
+    color: var(--h-accent);
+}
+
 .h-meta-author img {
     width: 2.25rem;
     height: 2.25rem;

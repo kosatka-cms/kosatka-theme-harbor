@@ -2,8 +2,9 @@
      article/meta.html, shown when the type shows the author and date),
      between hairlines: the author's avatar and name (a link to the
      profile), the date, the date of the last change when it differs,
-     the view count when the type shows it. The class article-meta is the
-     engine's. */}}
+     the view count when the type shows it, the reading time and the
+     comments (a link to them) when there are any. The class article-meta
+     is the engine's. */}}
 {{$author := .item.Node.CreatedBy}}
 <div class="article-meta h-meta">
     {{if $author}}
@@ -12,4 +13,6 @@
     <time datetime="{{.item.Node.CreatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date .item.Node.CreatedAt "medium"}}</time>
     {{if not .item.Node.UpdatedAt.IsZero}}{{if ne (date .item.Node.UpdatedAt "medium") (date .item.Node.CreatedAt "medium")}}<span>{{t "Updated:"}} <time datetime="{{.item.Node.UpdatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date .item.Node.UpdatedAt "medium"}}</time></span>{{end}}{{end}}
     {{if .contentType.ShowViewCount}}<span>{{plural .item.Node.Counter.TotalCount "@count view" "@count views"}}</span>{{end}}
+    {{with .readingTime}}<span>{{plural . "@count min read" "@count min read"}}</span>{{end}}
+    {{with .commentCount}}<a class="h-meta-comments" href="#comments">{{plural . "@count comment" "@count comments"}}</a>{{end}}
 </div>

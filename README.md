@@ -11,6 +11,8 @@ columns. An accent colour, a light and a dark scheme.
 
 ## Install
 
+Kosatka 0.1.4 or newer.
+
 ```bash
 app theme add https://github.com/kosatka-cms/kosatka-theme-harbor
 ```
@@ -45,7 +47,8 @@ text. In the sidebar a list is lines with a small picture.
 
 When the content type shows the author and date (an article, not a page
 like *About*), a meta row under the title carries the avatar, the name,
-the dates and the views; the contents of a long text open the sidebar;
+the dates, the views, the reading time and the comments (a link to
+them); the contents of a long text open the sidebar;
 under the text come sharing (the browser's own share sheet where it has
 one, copying the address, an e-mail) and the author's card with the
 signature from the profile.

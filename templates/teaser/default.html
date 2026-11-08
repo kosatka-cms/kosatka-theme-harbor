@@ -1,7 +1,7 @@
 {{/* The harbor teaser (a term's page and other lists of teasers;
      entity.TeaserItem), a card like the lists': the type's first image
      field in its list style on top, the title, the start of the body
-     text, then a line of the date and the comments, and the terms with
+     text, then a line of the date, the reading time and the comments, and the terms with
      public pages as chips (harbor.css). */}}
 {{define "teaser_default"}}
 {{$it := .}}
@@ -13,7 +13,7 @@
     {{end}}{{end}}
     <h2 class="node-teaser-title"><a href="{{$href}}"{{with $it.Node.Langcode}} lang="{{.}}"{{end}}>{{$title}}</a>{{with otherLanguage $it.Node.Langcode}} <span class="badge text-bg-secondary node-teaser-language">{{.}}</span>{{end}}</h2>
     {{with plainPreview $it.Body 200}}<p class="node-teaser-text">{{.}}</p>{{end}}
-    <p class="h-teaser-meta"><time datetime="{{$it.Node.CreatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date $it.Node.CreatedAt "medium"}}</time>{{with $it.CommentCount}}<span>{{plural . "@count comment" "@count comments"}}</span>{{end}}</p>
+    <p class="h-teaser-meta"><time datetime="{{$it.Node.CreatedAt.Format "2006-01-02T15:04:05Z07:00"}}">{{date $it.Node.CreatedAt "medium"}}</time>{{with $it.ReadingTime}}<span>{{plural . "@count min read" "@count min read"}}</span>{{end}}{{with $it.CommentCount}}<span>{{plural . "@count comment" "@count comments"}}</span>{{end}}</p>
     {{if $it.Terms}}<p class="h-tags">{{range $it.Terms}}{{range .}}{{if .HasPublicPage}}<a href="{{localURL (print "/" .Slug)}}">{{termName .}}</a>{{end}}{{end}}{{end}}</p>{{end}}
 </article>
 {{end}}
