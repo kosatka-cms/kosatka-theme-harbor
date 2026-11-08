@@ -30,7 +30,7 @@ The [demo site](#a-demo-site); a picture opens the whole page.
 
 ## Install
 
-Kosatka 0.1.6 or newer.
+Kosatka 0.1.7 or newer.
 
 ```bash
 app theme add https://github.com/kosatka-cms/kosatka-theme-harbor

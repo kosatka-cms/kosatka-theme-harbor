@@ -259,7 +259,7 @@ blocks:
     show_title: true
     body: <p>Small towns on the coast, written up one ferry, one walk and one breakfast at a time.</p><p><a href="/about">More about us</a></p>
   - {region: sidebar, view: popular, title: Popular, show_title: true, weight: 3}
-  - {region: sidebar, plugin: last_comments, title: Latest comments, weight: 4}
+  - {region: sidebar, plugin: last_comments, title: Latest comments, show_title: true, weight: 4}
   - {region: sidebar, plugin: tag_cloud, vocabulary: tags, title: Tags, show_title: true, weight: 5, config: {count: "16"}}
 
 menus:
