@@ -1,0 +1,277 @@
+# The harbor theme's demo site (app install -demo-set harbor): "Low
+# Tide", a travel blog about small towns on the coast - ferries,
+# lighthouses, markets, walks at low tide. A front page of cards with the
+# pinned story leading, the coasts in the menu, a sidebar of cards.
+# Everything here is made up - the towns, the people, the stories; the
+# pictures are the theme's own (demo/images), abstract, drawn for it.
+site:
+  slogan: Small towns on the coast
+  front_page_view: home
+  main_menu: main
+  footer_menu: footer
+
+users:
+  - sea_wren
+  - tide_tom
+  - gull_eye
+  - ferry_fan
+  - map_maria
+  - salt_and_pepper
+
+vocabularies:
+  - name: coasts
+    label: Coasts
+    path: coasts
+    terms:
+      - {name: North Sea, description: "Grey water, brown sails, wind in every story."}
+      - {name: Atlantic, description: "Cliffs, long swells and the lighthouses at the edge of the map."}
+      - {name: The Baltic, description: "Calm water, pine woods and the dunes behind the beach."}
+      - {name: Mediterranean, description: "Blue mornings, white towns and the evening walk along the harbour."}
+      - {name: Islands, description: "Places a ferry or the low tide takes you to."}
+  - name: tags
+    label: Tags
+    path: tags
+    terms: [walks, ferries, lighthouses, markets, food, tides, islands, off-season, rain, harbours, trains, birds, campsites, beaches, maps, boats, night]
+
+field_storages:
+  - {name: field_coast, type: taxonomy, vocabulary: coasts}
+  - {name: field_tags, type: taxonomy, vocabulary: tags, multiple: true}
+
+content_types:
+  - name: story
+    label: Story
+    description: A story from the road - a town, a ferry, a walk - with its pictures.
+    path: stories
+    comments: open
+    show_submitted: true
+    show_view_count: true
+    promote: true
+    fields:
+      - {storage: field_image, label: Cover, show_on_detail: true, detail_image_style: article_wide, list_image_style: article_card, sort_order: 0, display_order: 0}
+      - {storage: field_coast, label: Coast, widget: select, show_on_detail: true, sort_order: 10, display_order: 5}
+      - {storage: field_body, label: Text, widget: textarea, text_formats: [basic_html, plain_text], show_on_detail: true, renders_in_body: true, sort_order: 20, display_order: 10}
+      - {storage: field_tags, label: Tags, widget: autocomplete, show_on_detail: true, show_label: true, sort_order: 30, display_order: 20}
+
+nodes:
+  - key: low_tide_walk
+    type: story
+    title: Walking to the island at low tide
+    author: sea_wren
+    sticky: true
+    ago: 1d
+    views: 2140
+    fields:
+      field_image: {file: images/low-tide-walk.webp}
+      field_coast: Islands
+      field_tags: [walks, tides, islands]
+      field_body: |
+        <p>Twice a day the sea steps back from the causeway, and for four hours the island of Rook is a walk across the sand. We went in October, with a tide table, a thermos and a plan to be back before the water was.</p>
+        <h2>When to go</h2>
+        <p>The causeway opens about two hours before low water and closes two hours after it. The board by the car park has the times for the week; the harbour master's office has them for the month. Go on a falling tide: you get the whole window, not the end of it.</p>
+        <h2>What to bring</h2>
+        <p>Boots you don't mind getting wet, a jacket against the wind on the flats and something warm to drink. There's one café on the island, open "when the tide lets the baker over".</p>
+        <h2>On the island</h2>
+        <p>A chapel with a bell that rings for the tide, a ruined boat house and a colony of terns that would rather you kept to the path. Two hours is enough to walk round it slowly.</p>
+        <h2>The way back</h2>
+        <p>Start back a good half hour before the closing time on the board. The water comes in from the sides first, and the middle of the causeway is the last to go under - which is exactly why you shouldn't wait for it.</p>
+    comments:
+      - author: tide_tom
+        body: The bell for the tide is the best detail. Is it rung by hand?
+        replies:
+          - author: sea_wren
+            body: By the warden, twice a day. She says she has never missed one.
+      - author: map_maria
+        body: Went in spring after reading this - the terns were less polite.
+  - key: night_ferry
+    type: story
+    title: "The night ferry: twelve hours on deck"
+    author: ferry_fan
+    ago: 3d
+    views: 1360
+    fields:
+      field_image: {file: images/night-ferry.webp}
+      field_coast: North Sea
+      field_tags: [ferries, night, boats]
+      field_body: |
+        <p>The ferry leaves at seven in the evening and comes in at seven in the morning. You can sleep through it in a cabin, or you can do what we did: a blanket, a bench on the upper deck and the lights of the oil rigs passing like slow towns.</p>
+        <p>By midnight the bar closes and the deck belongs to the people who couldn't sleep anyway. By four the sky starts to grey from the east, and by six there's coffee and the first gulls of the other side.</p>
+    comments:
+      - author: gull_eye
+        body: The oil rigs at night - I know exactly that view.
+  - key: lighthouse_cottage
+    type: story
+    title: A week in a lighthouse keeper's cottage
+    author: gull_eye
+    ago: 5d
+    views: 1820
+    fields:
+      field_image: {file: images/lighthouse-cottage.webp}
+      field_coast: Atlantic
+      field_tags: [lighthouses, off-season]
+      field_body: |
+        <p>The light is automatic now, and the keeper's cottage is let by the week. Two rooms, a stove, a window facing the sea and the beam sweeping over the ceiling every eleven seconds.</p>
+        <p>The first night you count the sweeps. The second night you stop noticing them. On the last night you realise you'll miss them.</p>
+  - key: fish_market
+    type: story
+    title: Five in the morning at the Saltmarsh fish market
+    author: salt_and_pepper
+    ago: 7d
+    views: 940
+    fields:
+      field_image: {file: images/fish-market.webp}
+      field_coast: The Baltic
+      field_tags: [markets, food, harbours]
+      field_body: |
+        <p>The boats come in at four, the market opens at five and by eight it's over. In between: crates of herring on ice, a man smoking eel in a shed the size of a phone box and the best breakfast on the coast - fried fish on bread, eaten standing.</p>
+    comments:
+      - author: ferry_fan
+        body: Fried fish at five in the morning is a test of character. Passed.
+  - key: cliff_path
+    type: story
+    title: The cliff path from Greyhaven to Kittiwake Point
+    author: map_maria
+    ago: 9d
+    views: 1210
+    fields:
+      field_image: {file: images/cliff-path.webp}
+      field_coast: Atlantic
+      field_tags: [walks, birds, maps]
+      field_body: |
+        <p>Fourteen kilometres of cliff path, two villages with a pub each and a headland that is more birds than rock. The path is well marked, but the wind isn't: start early and walk with the wind at your back.</p>
+        <p>At Kittiwake Point the birds nest on ledges so close to the path that you hear them before you see the sea.</p>
+  - key: rainy_weekend
+    type: story
+    title: A rainy weekend in Port Wren, and why it was the best one
+    author: tide_tom
+    ago: 12d
+    views: 860
+    fields:
+      field_image: {file: images/rainy-weekend.webp}
+      field_coast: North Sea
+      field_tags: [rain, harbours, off-season]
+      field_body: |
+        <p>It rained from Friday evening to Sunday noon. The harbour was ours: the boats knocking against each other, the chip shop steamed up, the bookshop with a chair by the window and nobody waiting for it.</p>
+  - key: coast_train
+    type: story
+    title: "The coast line: a slow train along the sea"
+    author: ferry_fan
+    ago: 15d
+    views: 1090
+    fields:
+      field_image: {file: images/coast-train.webp}
+      field_coast: Mediterranean
+      field_tags: [trains, maps]
+      field_body: |
+        <p>Two carriages, nineteen stations and the sea on the left all the way. The train stops in towns that are a church, a harbour and a bar, and the driver waves to the station masters as if they were family.</p>
+  - key: dune_camping
+    type: story
+    title: "Camping in the dunes: a short checklist"
+    author: sea_wren
+    ago: 18d
+    views: 730
+    fields:
+      field_image: {file: images/dune-camping.webp}
+      field_coast: The Baltic
+      field_tags: [campsites, beaches]
+      field_body: |
+        <p>Pitch behind the first dune, not on it. Long pegs, because sand doesn't hold short ones. A lamp you can hang, a pan with a lid against the sand in the food, and earplugs - the sea is louder at night than you think.</p>
+  - key: island_bakery
+    type: story
+    title: The only bakery on the island
+    author: salt_and_pepper
+    ago: 21d
+    views: 650
+    fields:
+      field_image: {file: images/island-bakery.webp}
+      field_coast: Islands
+      field_tags: [food, islands, ferries]
+      field_body: |
+        <p>The flour comes on the Tuesday ferry, the bread is ready at seven and gone by ten. Ask for the dark rye with fennel - and don't ask for the recipe, the baker has heard that one before.</p>
+  - key: tide_tables
+    type: story
+    title: How to read a tide table, and why you should
+    author: map_maria
+    ago: 25d
+    views: 990
+    fields:
+      field_image: {file: images/tide-tables.webp}
+      field_coast: North Sea
+      field_tags: [tides, maps, walks]
+      field_body: |
+        <p>Two high waters and two low waters a day, about fifty minutes later each day. The heights matter as much as the times: a "spring" tide goes further out and comes further in than a "neap" one.</p>
+        <p>Read the table the evening before, write the times on your hand if you have to, and never trust the sand to tell you when the sea is coming back.</p>
+    comments:
+      - author: tide_tom
+        body: Writing the times on your hand - I laughed, then I remembered I've done it.
+
+  - key: about
+    type: page
+    title: About
+    path: about
+    fields:
+      field_body: |
+        <p>Low Tide is a demo site of the Kosatka engine and its Harbor theme: a travel blog about small towns on the coast. Everything here - the towns, the people, the stories - is made up; the pictures are drawn for it.</p>
+        <p>The stories are ordinary content, changed and deleted in the admin; the coasts and the tags are terms, the sidebar is blocks.</p>
+
+views:
+  - name: home
+    label: Stories on the front page
+    display_type: block
+    style: list
+    pager: true
+    page_size: 9
+    fields:
+      - {storage: field_image, image_style: article_card, link_to: content}
+      - {storage: field_coast, tag_format: badges}
+      - {builtin: title, link_to: content}
+      - {builtin: author, show_label: true}
+      - {builtin: created_at, date_format: medium}
+      - {storage: field_body, trim_length: 220}
+      - {storage: field_tags, tag_format: linked, show_label: true}
+      - {builtin: view_count, show_label: true}
+      - {builtin: comment_count, show_label: true}
+    filters:
+      - {builtin: status, operator: eq, value: "1"}
+      - {builtin: promote, operator: eq, value: "1"}
+      - {builtin: on_moderation, operator: eq, value: "0"}
+    sorts:
+      - {builtin: sticky, direction: desc}
+      - {builtin: created_at, direction: desc}
+  - name: popular
+    label: Popular
+    display_type: block
+    style: list
+    page_size: 5
+    fields:
+      - {builtin: title, link_to: content}
+      - {builtin: view_count, show_label: true}
+    filters:
+      - {builtin: content_type, operator: in, value: story}
+      - {builtin: status, operator: eq, value: "1"}
+    sorts:
+      - {builtin: views, direction: desc}
+
+blocks:
+  - {region: sidebar, plugin: search_form, title: Search, weight: 1}
+  - region: sidebar
+    weight: 2
+    title: About the blog
+    show_title: true
+    body: <p>Small towns on the coast, written up one ferry, one walk and one breakfast at a time.</p><p><a href="/about">More about us</a></p>
+  - {region: sidebar, view: popular, title: Popular, show_title: true, weight: 3}
+  - {region: sidebar, plugin: last_comments, title: Latest comments, weight: 4}
+  - {region: sidebar, plugin: tag_cloud, vocabulary: tags, title: Tags, show_title: true, weight: 5, config: {count: "16"}}
+
+menus:
+  - name: main
+    links:
+      - {title: North Sea, term: coasts/North Sea}
+      - {title: Atlantic, term: coasts/Atlantic}
+      - {title: The Baltic, term: coasts/The Baltic}
+      - {title: Mediterranean, term: coasts/Mediterranean}
+      - {title: Islands, term: coasts/Islands}
+  - name: footer
+    label: Footer
+    region: footer
+    links:
+      - {title: About, node: about}

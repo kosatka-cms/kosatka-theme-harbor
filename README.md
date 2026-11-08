@@ -9,9 +9,28 @@ columns. An accent colour, a light and a dark scheme.
 
 ![Harbor](https://raw.githubusercontent.com/kosatka-cms/kosatka-theme-harbor/main/static/screenshot.jpg)
 
+## Screenshots
+
+The [demo site](#a-demo-site); a picture opens the whole page.
+
+<table>
+  <tr>
+    <td width="50%"><a href="docs/screenshots/home.webp"><img src="docs/screenshots/home-preview.webp" alt="The front page"></a><br>The front page: the pinned story leading, the others in two columns</td>
+    <td width="50%"><a href="docs/screenshots/story.webp"><img src="docs/screenshots/story-preview.webp" alt="A story"></a><br>A story, its contents at the top of the sidebar</td>
+  </tr>
+  <tr>
+    <td><a href="docs/screenshots/coast.webp"><img src="docs/screenshots/coast-preview.webp" alt="A term's page"></a><br>A term's page</td>
+    <td><a href="docs/screenshots/home-dark.webp"><img src="docs/screenshots/home-dark-preview.webp" alt="The front page in the dark scheme"></a><br>The dark scheme</td>
+  </tr>
+  <tr>
+    <td><a href="docs/screenshots/phone-home.webp"><img src="docs/screenshots/phone-home-preview.webp" alt="The front page on a phone" width="48%"></a> <a href="docs/screenshots/phone-story.webp"><img src="docs/screenshots/phone-story-preview.webp" alt="A story on a phone, dark" width="48%"></a><br>On a phone: the front page, a story in the dark scheme</td>
+    <td></td>
+  </tr>
+</table>
+
 ## Install
 
-Kosatka 0.1.4 or newer.
+Kosatka 0.1.6 or newer.
 
 ```bash
 app theme add https://github.com/kosatka-cms/kosatka-theme-harbor
@@ -19,6 +38,27 @@ app theme add https://github.com/kosatka-cms/kosatka-theme-harbor
 
 Then commit `themes/` and choose *Harbor* on *Appearance*. See
 [Distributing a theme](https://kosatka-cms.github.io/kosatka/themes/distribute/).
+
+## A demo site
+
+The theme comes with a demo site in English (`demo/en.yaml`): "Low
+Tide", a travel blog about small towns on the coast - stories with
+their pictures, coasts and tags, comments, a sidebar of cards. Everything
+in it is made up - the towns, the people, the stories; its pictures are
+abstract, drawn for it, and come with the theme (`demo/images`). On a
+new site:
+
+```bash
+app install -site-name "Low Tide" -admin-name admin -admin-email admin@example.com \
+  -language en -demo-set harbor
+```
+
+Everything the demo creates is ordinary content, Views and blocks,
+changed or deleted in the admin.
+
+The screenshots above are of it: `python3 scripts/screenshots.py
+http://127.0.0.1:8080` (the demo site's address) takes them again into
+`docs/screenshots/` - Python 3 and Google Chrome are all it needs.
 
 ## Settings
 

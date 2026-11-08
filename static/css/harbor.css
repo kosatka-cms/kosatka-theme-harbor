@@ -575,6 +575,14 @@ main.container.container-content {
     color: var(--h-accent);
 }
 
+/* A term's description on its page, between the title and the list. */
+.term-description {
+    max-width: 42rem;
+    margin-bottom: 2rem;
+    color: var(--h-muted);
+    font-size: 1.0625rem;
+}
+
 /* Lists in the content (Views): cards in two columns - the picture on
    top, a term shown as a badge (the kicker), the title, the start of the
    text, the tags, then the author, the date and the counters. The
