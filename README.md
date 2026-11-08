@@ -39,6 +39,8 @@ app theme add https://github.com/kosatka-cms/kosatka-theme-harbor
 Then commit `themes/` and choose *Harbor* on *Appearance*. See
 [Distributing a theme](https://kosatka-cms.github.io/kosatka/themes/distribute/).
 
+More themes for Kosatka: the [themes catalog](https://github.com/kosatka-cms/themes).
+
 ## A demo site
 
 The theme comes with a demo site in English (`demo/en.yaml`): "Low
